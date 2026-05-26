@@ -16,17 +16,6 @@
 
     document.getElementById("message-line-8") = message
   }
-
-  
-  // Set up the message box to send messages on ENTER press.
-  const message_form = document.getElementById("message_form")
-  message_form.addEventListener('submit', function(event) {
-
-  var message_box = document.getElementById("message_box");
-  if(message_box.value != ""){
-    sendMessage(message_box.value)
-  }
-  }
     
 });
   
@@ -62,10 +51,19 @@
 <p id="message-line-7">.</p>
 <p id="message-line-8">.</p>
 
-<form id = "message_form">
-  <input type="text" id="message_box" placeholder="Enter a message...">
-  <input type="submit">
-</form>
+<input type="text" id="message_box" placeholder="Enter a message...">
 
+<script>
+  var message_box = document.getElementById("message_box");
+
+  message_box.addEventListener("keydown", function(event){
+    if (event.key === 'Enter' && message_box.value != '')
+    {
+      sendMessage(message_box.value)
+      message_box.value = ''
+    }
+  }
+                               
+</script>
 </body>
 </html>
