@@ -7,10 +7,14 @@
   // Set up the message box to send messages on ENTER press.
   const message_box = document.getElementById("message_box")
   inputField.addEventListener('keydown', function(event) {
+  /*
   if (event.key === 'Enter' && inputField.value != "") {
     const message = inputField.value.trim(); // .trim() removes accidental extra spaces
     sendMessage(message);  // Run your method with the text as the parameter
     inputField.value = ""; // Clear the text box
+  */
+    sendMessage(event.key)
+    
   }
     
 });
