@@ -3,12 +3,37 @@
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
 <script>
+  
+  // Set up the message box to send messages on ENTER press.
+  const message_box = document.getElementById("message_box")
+  inputField.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter' && inputField.value != "") {
+    const message = inputField.value.trim(); // .trim() removes accidental extra spaces
+    sendMessage(message);  // Run your method with the text as the parameter
+    inputField.value = ""; // Clear the text box
+  }
+    
+});
+  
   function changeText() {
   // 1. Find the element using its ID
   const paragraph = document.getElementById("my-paragraph");
   
   // 2. Change its text
   paragraph.textContent = "Data successfully updated!";
+
+  // Write a message to the message log.
+  function sendMessage(message) {
+    for(var i = 1; i < 9; i++)
+    {
+      var cell = document.getElementById("message-line" + i)
+      var cell_prev = document.getElementById("message-line" + (i-1))
+
+      cell_prev.textContent = cell.textContent
+    }
+
+    document.getElementById("message-line-8") = message
+  }
 }
   
 </script>
@@ -21,6 +46,19 @@
 
 <p id="my-paragraph">This is the original text.</p>
 <button onclick="changeText()">Click Me</button>
-  
+
+<h2>Messages</h2>
+<p id="message-line-0"> </p>
+<p id="message-line-1"> </p>
+<p id="message-line-2"> </p>
+<p id="message-line-3"> </p>
+<p id="message-line-4"> </p>
+<p id="message-line-5"> </p>
+<p id="message-line-6"> </p>
+<p id="message-line-7"> </p>
+<p id="message-line-8"> </p>
+
+<input type="text" id="message_box" placeholder="Enter a message..."><br><br>
+
 </body>
 </html>
