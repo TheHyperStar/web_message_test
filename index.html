@@ -3,6 +3,20 @@
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
 <script>
+
+  // Write a message to the message log.
+  function sendMessage(message) {
+    for(var i = 1; i < 9; i++)
+    {
+      var cell = document.getElementById("message-line" + i)
+      var cell_prev = document.getElementById("message-line" + (i-1))
+
+      cell_prev.textContent = cell.textContent
+    }
+
+    document.getElementById("message-line-8") = message
+  }
+
   
   // Set up the message box to send messages on ENTER press.
   const message_box = document.getElementById("message_box")
@@ -27,18 +41,7 @@
   // 2. Change its text
   paragraph.textContent = "Data successfully updated!";
 
-  // Write a message to the message log.
-  function sendMessage(message) {
-    for(var i = 1; i < 9; i++)
-    {
-      var cell = document.getElementById("message-line" + i)
-      var cell_prev = document.getElementById("message-line" + (i-1))
-
-      cell_prev.textContent = cell.textContent
-    }
-
-    document.getElementById("message-line-8") = message
-  }
+  
 }
   
 </script>
