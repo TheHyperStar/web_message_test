@@ -1,9 +1,26 @@
 <!DOCTYPE html>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+<script>
+  function changeText() {
+  // 1. Find the element using its ID
+  const paragraph = document.getElementById("my-paragraph");
+  
+  // 2. Change its text
+  paragraph.textContent = "Data successfully updated!";
+}
+  
+</script>
+
 <html>
 <body>
 
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
 
+<p id="my-paragraph">This is the original text.</p>
+<button onclick="changeText()">Click Me</button>
+  
 </body>
 </html>
